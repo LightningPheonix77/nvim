@@ -1,0 +1,51 @@
+return{
+  'nvimdev/dashboard-nvim',
+  event = 'VimEnter',
+  config = function()
+    require('dashboard').setup {
+      theme = "doom",
+      hide = { statusline = true },
+      config = {
+            header = {
+                    
+[[                                                                       ]],
+[[                                                                       ]],
+[[                                                                       ]],
+[[                                                                       ]],
+[[                                                                       ]],
+[[                                                                       ]],                    
+[[    __     _         __     __          _                              ]],
+[[   / /    (_)____ _ / /_   / /_ ____   (_)____   ____ _                ]],
+[[  / /    / // __ `// __ \ / __// __ \ / // __ \ / __ `/                ]],
+[[ / /___ / // /_/ // / / // /_ / / / // // / / // /_/ /                 ]],
+[[/_____//_/ \__, //_/ /_/ \__//_/ /_//_//_/ /_/ \__, /                  ]],
+[[          /____/                              /____/                   ]],
+[[               ____   __                         _          _____ _____]],
+[[              / __ \ / /_   ___   ____   ____   (_)_  __   /__  //__  /]],
+[[             / /_/ // __ \ / _ \ / __ \ / __ \ / /| |/_/     / /   / / ]],
+[[            / ____// / / //  __// /_/ // / / // /_>  <      / /   / /  ]],
+[[           /_/    /_/ /_/ \___/ \____//_/ /_//_//_/|_|     /_/   /_/   ]],
+[[                                                                       ]],
+[[                                                                       ]],
+[[                                                                       ]],
+[[                                                                       ]],
+[[                                                                       ]],
+                },
+center = {
+        { action = "Telescope find_files",                                     desc = " Find file",       icon = " ", key = "f" },
+        { action = "ene | startinsert",                                        desc = " New file",        icon = " ", key = "n" },
+        { action = "Telescope oldfiles",                                       desc = " Recent files",    icon = " ", key = "r" },
+        { action = "Telescope live_grep",                                      desc = " Find text",       icon = " ", key = "g" },
+        { action = "Lazy",                                                     desc = " Lazy",            icon = "󰒲 ", key = "l" },
+        { action = "qa",                                                       desc = " Quit",            icon = " ", key = "q" },
+      },
+ footer = function()
+        local stats = require("lazy").stats()
+        local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
+        return { "⚡ Neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. "ms" }
+                end,
+    }
+        }
+    end,
+  dependencies = { {'nvim-tree/nvim-web-devicons'}}
+}
